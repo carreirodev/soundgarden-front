@@ -19,7 +19,9 @@ addInput.setAttribute("type", "text");
 addInput.setAttribute("aria-describedby", "lotacao");
 
 const data = document.querySelector("#data");
-data.setAttribute("value", "2018-06-12T19:30");
+data.setAttribute("value", "2022-03-27T01:00");
+data.setAttribute("min", "2022-03-27T01:00");
+data.setAttribute("max", "2025-12-30T00:00");
 data.setAttribute("type", "datetime-local");
 
 const inputNome = document.querySelector("#nome");
