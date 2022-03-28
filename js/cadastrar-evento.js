@@ -62,7 +62,9 @@ form.onsubmit = async (evento) => {
 		redirect: "follow"
 	};
 
-	const resposta = await fetch(`${BASE_URL}/events`, options);
+	const resposta = await fetch(BASE_URL + "/events", options).then(() => {
+		window.location.replace("/admin.html");
+	});
 
 	console.log(resposta);
 };

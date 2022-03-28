@@ -30,7 +30,5 @@ const exibirEventos = async () => {
 		let listaEventos = document.querySelector("#todososeventos");
 		listaEventos.innerHTML += eventosTable;
 	}
-
-	// painelReceitas.innerHTML = htmlReceitas;
 };
 exibirEventos();
