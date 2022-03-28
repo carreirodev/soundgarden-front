@@ -1,7 +1,3 @@
-const createTH = document.createElement("th");
-const createTD = document.createElement("td");
-const createA = document.createElement("a");
-
 const exibirEventos = async () => {
 	var requestOptions = {
 		method: "GET",
@@ -11,8 +7,6 @@ const exibirEventos = async () => {
 	const allEventos = await fetch("https://xp41-soundgarden-api.herokuapp.com/events", requestOptions);
 
 	const contentEventos = await allEventos.json();
-	const teste = contentEventos[1].scheduled;
-	console.log(teste.substring(0, 10));
 
 	let eventosTable = "";
 
