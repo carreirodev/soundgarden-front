@@ -16,7 +16,7 @@ const exibirEventos = async () => {
 									<td>${item.name}</td>
 									<td>${item.attractions}</td>
 									<td>
-										<a href="reservas.html" class="btn btn-dark">ver reservas</a>
+										<a href="reservas-evento.html?id=${item._id}" class="btn btn-dark">ver reservas</a>
 										<a href="editar-evento.html?id=${item._id}" class="btn btn-secondary">editar</a>
 										<a href="excluir-evento.html?id=${item._id}" class="btn btn-danger">excluir</a>
 									</td>
