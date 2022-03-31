@@ -10,19 +10,23 @@ const exibirReservasEventos = async () => {
 	const bookingEventos = await fetch(`${BASE_URL}/${id}`, requestOptions);
 
 	const reservaEventos = await bookingEventos.json();
-	document.querySelector("#eventoNome").innerHTML = reservaEventos[0].event.name;
+	console.log(reservaEventos.length);
+
 	let eventosTable = "";
-
-	for (let index = 0; index < reservaEventos.length; index++) {
-		eventosTable = `<tr><th scope="row">${index}</th>
-									<td>${reservaEventos[index].event.scheduled.substring(0, 10)}</td>
-									<td>${reservaEventos[index].owner_name}</td>
-									<td>${reservaEventos[index].owner_email}</td>
-									<td>${reservaEventos[index].number_tickets}</td>
+	if (reservaEventos.length != 0) {
+		document.querySelector("#eventoNome").innerHTML = reservaEventos[0].event.name;
+		reservaEventos.forEach((item, index) => {
+			eventosTable = `<tr><th scope="row">${index}</th>
+									<td>${item.event.scheduled.substring(0, 10)}</td>
+									<td>${item.owner_name}</td>
+									<td>${item.owner_email}</td>
+									<td>${item.number_tickets}</td>
 								</tr>`;
-
-		let listaEventos = document.querySelector("#todososeventos");
-		listaEventos.innerHTML += eventosTable;
+			let listaEventos = document.querySelector("#todososeventos");
+			listaEventos.innerHTML += eventosTable;
+		});
+	} else {
+		document.querySelector("#eventoNome").innerHTML = "Evento Sem Reservas";
 	}
 };
 exibirReservasEventos();
