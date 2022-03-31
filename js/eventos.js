@@ -15,8 +15,8 @@ const exibirEventos = async () => {
                     <h2>${contentEventos[index].name}</h2><h4> ${contentEventos[index].scheduled.substring(0, 10)}</h4>
                     <h4>${contentEventos[index].attractions}</h4>
                     <p>${contentEventos[index].description}</p>
-                    <a id="reserva" href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>`;
+                    <a   href="#?id=${contentEventos[index]._id}" class="btn btn-primary res">reservar ingresso</a>
+                    </article>`;
 		let listaEventos = document.querySelector("#todososeventos");
 		listaEventos.innerHTML += eventosTable;
 	}

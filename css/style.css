@@ -66,20 +66,37 @@ footer nav ul li {
 	/* max-width: 500px; */
 	/* height: 50vw; */
 	/* max-height: 150px; */
-	position: relative;	
+	position: relative;
 }
 
-#slider img{
+#slider img {
 	opacity: 0;
 	position: absolute;
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
 	transition: opacity 1800ms;
-	
 }
- 
+
 #slider img.selected {
 	opacity: 1;
-	
+}
+
+#popupreserva {
+	display: block;
+	position: fixed;
+	padding: 3%;
+	max-width: 480px;
+	width: 100%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 999;
+	background-color: #fff;
+	border: 2px solid #333;
+}
+
+#popupreserva div,
+#popupreserva form {
+	width: 100%;
 }
