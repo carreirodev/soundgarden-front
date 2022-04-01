@@ -22,6 +22,7 @@
 		</header>
 		<section id="popupreserva">
 			<h1 id="eventoNome"></h1>
+			<h4 id="idEvento"></h4>
 			<form class="col-6">
 				<div class="mb-3">
 					<label for="nome" class="form-label">Nome</label>
@@ -35,8 +36,8 @@
 					<label for="qtdIngressos" class="form-label">Qtd ingressos</label>
 					<input type="number" class="form-control" id="qtdIngressos" aria-describedby="qtdIngressos" />
 				</div>
-				<button onclick="reservar" class="btn btn-primary concluirreservar">Reservar</button>
-				<button onclick="cancelar" class="btn btn-secondary">Fechar</button>
+				<button class="btn btn-primary concluirreservar">Reservar</button>
+				<button class="btn btn-secondary" id="fechar">Fechar</button>
 			</form>
 		</section>
 		<main>

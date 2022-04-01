@@ -12,6 +12,8 @@ let nome = document.querySelector("#nome");
 let email = document.querySelector("#email");
 let qtde = document.querySelector("#qtdIngressos");
 
+const FAZER_RESERVA = "https://xp41-soundgarden-api.herokuapp.com/bookings";
+
 const exibirEventos = async () => {
 	var requestOptions = {
 		method: "GET",
@@ -41,11 +43,45 @@ exibirEventos();
 let reservar = async (id, nome) => {
 	modal.style.display = "block";
 	nomeEvento.innerHTML = "Evento: " + nome;
-	var idEvento = id;
+	idEvento = id;
 	console.log(idEvento);
 };
 
-let cancelar = async (e) => {
-	e.preventdefault();
+cancelarReserva.addEventListener("mousedown", (e) => {
 	modal.style.display = "none";
+});
+
+form.onsubmit = async (e) => {
+	e.preventDefault();
+
+	try {
+		let dataraw = {
+			owner_name: nome.value,
+			owner_email: email.value,
+			number_tickets: qtde.value,
+			event_id: idEvento
+		};
+		console.log(dataraw);
+
+		const option = {
+			method: "POST",
+			body: JSON.stringify(dataraw),
+			headers: {
+				"Content-Type": "application/json"
+			},
+			redirect: "follow"
+		};
+
+		const resposta = await fetch(FAZER_RESERVA, option);
+
+		if (resposta.status != "201") {
+			return alert("Ocorreu um erro. Verifique se todos os dados estão corretos!");
+		}
+
+		alert("Reserva feita com sucesso!");
+		return window.location.reload();
+	} catch (e) {
+		alert("Algum erro está ocorrendo. Informe o administrador do site \nErro: " + e);
+		window.location.reload();
+	}
 };
