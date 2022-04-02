@@ -4,7 +4,7 @@ const exibirEventos = async () => {
 		redirect: "follow"
 	};
 
-	const allEventos = await fetch("https://xp41-soundgarden-api.herokuapp.com/events", requestOptions);
+	const allEventos = await fetch(`${BASEURL}/events/`, requestOptions);
 
 	const contentEventos = await allEventos.json();
 

@@ -60,11 +60,7 @@
 								<label for="nome" class="form-label">Nome</label>
 								<input type="text" class="form-control" id="nome" aria-describedby="nome" />
 							</div>
-							<div class="mb-3">
-								<label for="banner" class="form-label">Banner</label>
-								<input type="text" class="form-control" id="banner" aria-describedby="banner" />
-								<small>adicione o link da imagem</small>
-							</div>
+
 							<div class="mb-3">
 								<label for="atracoes" class="form-label">Atrações</label>
 								<input type="text" class="form-control" id="atracoes" aria-describedby="atracoes" />
@@ -77,11 +73,11 @@
 							<div class="mb-3">
 								<label for="data" class="form-label">Data</label>
 								<input
-									type="datetime"
+									type="datetime-local"
+									data-date-inline-picker="true"
 									name="data"
 									id="data"
 									class="form-control"
-									placeholder="00/00/00 00:00"
 								/>
 							</div>
 							<div class="mb-3">
@@ -89,6 +85,11 @@
 									>Lotação (número de ingressos disponiveis)</label
 								>
 								<input type="number" class="form-control" id="lotacao" aria-describedby="lotacao" />
+							</div>
+							<div class="mb-3">
+								<label for="banner" class="form-label">Banner</label>
+								<input type="text" class="form-control" id="banner" aria-describedby="banner" />
+								<small>adicione o link da imagem</small>
 							</div>
 							<button type="submit" class="btn btn-primary">enviar</button>
 						</form>
@@ -101,6 +102,7 @@
 			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 			crossorigin="anonymous"
 		></script>
+		<script src="./js/helpers.js"></script>
 		<script src="./js/editar-evento.js"></script>
 	</body>
 </html>

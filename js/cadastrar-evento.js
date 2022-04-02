@@ -1,23 +1,6 @@
 let posterItem = document.createElement("div");
 let insertPoster = document.querySelector(".btn-primary");
 
-let addPoster = insertPoster.insertAdjacentElement("beforebegin", posterItem);
-addPoster.setAttribute("class", "mb-3 poster");
-
-let labelItem = document.createElement("label");
-let insertLabel = document.querySelector(".poster");
-let addLabel = insertLabel.insertAdjacentElement("afterbegin", labelItem);
-addLabel.setAttribute("class", "form-label");
-addLabel.setAttribute("for", "poster");
-addLabel.innerHTML = "Link do Poster do Evento";
-
-let labelInput = document.createElement("input");
-let addInput = insertLabel.insertAdjacentElement("beforeend", labelInput);
-addInput.setAttribute("class", "form-control");
-addInput.setAttribute("id", "poster");
-addInput.setAttribute("type", "text");
-addInput.setAttribute("aria-describedby", "lotacao");
-
 const data = document.querySelector("#data");
 data.setAttribute("value", "2022-03-27T01:00");
 data.setAttribute("min", "2022-03-27T01:00");
@@ -30,12 +13,6 @@ const inputDescricao = document.querySelector("#descricao");
 const inputData = document.querySelector("#data");
 const inputTotalPasses = document.querySelector("#lotacao");
 const inputPoster = document.querySelector("#poster");
-
-inputNome.setAttribute("required", "");
-inputAtracoes.setAttribute("required", "");
-inputDescricao.setAttribute("required", "");
-inputData.setAttribute("required", "");
-inputTotalPasses.setAttribute("required", "");
 
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
@@ -52,7 +29,7 @@ form.onsubmit = async (evento) => {
 		scheduled: inputData.value,
 		number_tickets: inputTotalPasses.value
 	};
-
+	console.log(inputData.value);
 	const options = {
 		method: "POST",
 		body: JSON.stringify(newEvento1),
@@ -63,6 +40,7 @@ form.onsubmit = async (evento) => {
 	};
 
 	const resposta = await fetch(BASE_URL + "/events", options).then(() => {
+		alert("Evento Cadastrado com Sucesso");
 		window.location.replace("/admin.html");
 	});
 

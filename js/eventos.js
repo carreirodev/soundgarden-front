@@ -47,11 +47,16 @@ let reservar = async (id, nome) => {
 	console.log(idEvento);
 };
 
-cancelarReserva.addEventListener("mousedown", (e) => {
-	modal.style.display = "none";
-});
+// cancelarReserva.addEventListener("mousedown", (e) => {
+// 	modal.style.display = "none";
+// });
 
-form.onsubmit = async (e) => {
+cancelarReserva.onclick = (e) => {
+	e.preventDefault();
+	modal.style.display = "none";
+};
+
+concluirReserva.onclick = async (e) => {
 	e.preventDefault();
 
 	try {
