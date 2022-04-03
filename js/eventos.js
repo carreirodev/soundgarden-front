@@ -27,7 +27,7 @@ const exibirEventos = async () => {
 	let eventosTable = "";
 
 	for (let index = 0; index < contentEventos.length; index++) {
-		eventosTable = `<article class="evento card p-5 m-3">
+		eventosTable = `<article id="listAllEvents" class="evento card p-5 m-3">
                     <h2>${contentEventos[index].name}</h2><h4> ${contentEventos[index].scheduled.substring(0, 10)}</h4>
                     <h4>${contentEventos[index].attractions}</h4>
                     <p>${contentEventos[index].description}</p>
